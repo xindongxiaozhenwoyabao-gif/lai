@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#68a94e">
+  <title>皮克敏｜限定小禮物活動</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Microsoft JhengHei", Arial, sans-serif;
+      background:
+        radial-gradient(ellipse at top, #f7ffdf 0%, transparent 55%),
+        linear-gradient(180deg, #c9eeb0 0%, #eaf6d7 55%, #fff3d4 100%);
+      color: #3f5435;
+    }
+
+    .event {
+      width: 100%;
+      max-width: 430px;
+      overflow: hidden;
+      background: #fffdf5;
+      border: 3px solid #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 8px 0 #a4c88a, 0 15px 35px #53783b25;
+    }
+
+    .header {
+      position: relative;
+      padding: 27px 20px 25px;
+      text-align: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, #80c85b, #438f47);
+      border-bottom: 5px solid #d7edac;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 13px;
+      border: 1px solid #ffffff80;
+      border-radius: 20px;
+      background: #ffffff20;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .logo {
+      margin: 18px 0 5px;
+      font-size: 48px;
+      line-height: 1.3;
+    }
+
+    h1 {
+      margin: 8px 0;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 0 #34723c;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #f3ffe9;
+    }
+
+    .content {
+      padding: 23px 21px 25px;
+    }
+
+    .gift-visual {
+      position: relative;
+      margin: 0 auto 20px;
+      padding: 20px 10px;
+      text-align: center;
+      border-radius: 16px;
+      border: 2px dashed #a8ce83;
+      background: linear-gradient(145deg, #f3fbe7, #fff6db);
+    }
+
+    .gift-icon {
+      font-size: 58px;
+      filter: drop-shadow(0 4px 2px #779d4530);
+    }
+
+    .gift-name {
+      margin-top: 8px;
+      font-size: 19px;
+      font-weight: 900;
+      color: #4c8a3e;
+    }
+
+    .gift-desc {
+      margin-top: 7px;
+      color: #78856a;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 22px 0 12px;
+      font-size: 16px;
+      font-weight: 900;
+      color: #4c843e;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 19px;
+      border-radius: 5px;
+      background: #81bb58;
+    }
+
+    .steps {
+      display: grid;
+      gap: 10px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px;
+      border-radius: 11px;
+      background: #f5f8ed;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .number {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #78b758;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .step strong {
+      color: #477a39;
+    }
+
+    .notice {
+      margin-top: 17px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #fff4d9;
+      color: #887342;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .cta {
+      display: block;
+      margin-top: 20px;
+      padding: 15px 12px;
+      border-radius: 13px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #ffffff;
+      background: linear-gradient(180deg, #82c85b, #57a144);
+      box-shadow: 0 5px 0 #387d36;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .cta:hover {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #387d36;
+    }
+
+    .cta:active {
+      transform: translateY(5px);
+      box-shadow: none;
+    }
+
+    .footer {
+      padding: 14px 18px;
+      text-align: center;
+      background: #f1f6e7;
+      color: #8b9b7c;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      .content {
+        padding: 18px 15px 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="event">
+
+    <header class="header">
+      <div class="tag">SPECIAL EVENT · 特別活動</div>
+
+      <div class="logo" aria-hidden="true">🌱🎁🌼</div>
+
+      <h1>限定小禮物領取活動</h1>
+
+      <p class="subtitle">
+        隊長，準備好領取你的驚喜了嗎？<br>
+        立即聯絡客服，了解小禮物代碼領取方式！
+      </p>
+    </header>
+
+    <section class="content">
+
+      <div class="gift-visual">
+        <div class="gift-icon" aria-hidden="true">🎁</div>
+        <div class="gift-name">神秘小禮物</div>
+        <div class="gift-desc">
+          活動禮物代碼由客服提供<br>
+          快來看看有什麼驚喜吧！
+        </div>
+      </div>
+
+      <div class="section-title">活動參與方式</div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="number">1</span>
+          <div>
+            <strong>加入客服</strong><br>
+            點擊下方按鈕，前往客服聯絡頁面。
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="number">2</span>
+          <div>
+            <strong>詢問活動禮物</strong><br>
+            向客服詢問小禮物代碼及領取條件。
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="number">3</span>
+          <div>
+            <strong>領取禮物代碼</strong><br>
+            確認符合活動條件後，依客服提供的指示領取。
+          </div>
+        </div>
+      </div>
+
+      <div class="notice">
+        📌 <strong>活動提醒</strong><br>
+        禮物內容、代碼及領取資格請以實際活動公告為準。請勿向他人提供密碼或驗證碼。
+      </div>
+
+      <!-- 將下方網址替換成你的客服連結 -->
+      <a
+        class="cta"
+        href="https://example.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🌼 立即加入客服
+      </a>
+
+    </section>
+
+    <footer class="footer">
+      祝隊長有個愉快的探險之旅！🌿<br>
+      本頁為自訂活動頁面範本，並非皮克敏官方網站。
+    </footer>
+
+  </main>
+</body>
+</html>
