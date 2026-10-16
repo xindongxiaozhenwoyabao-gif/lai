@@ -1,300 +1,291 @@
-
+```html
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#68a94e">
-  <title>皮克敏｜限定小禮物活動</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>萬聖節活動・促銷代碼獎勵</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+* { box-sizing: border-box; }
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 10%, #d94ddf 0%, transparent 45%),
+    linear-gradient(145deg, #a82ac2, #6b168f 55%, #45105e);
+  color: #17131a;
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 24px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Microsoft JhengHei", Arial, sans-serif;
-      background:
-        radial-gradient(ellipse at top, #f7ffdf 0%, transparent 55%),
-        linear-gradient(180deg, #c9eeb0 0%, #eaf6d7 55%, #fff3d4 100%);
-      color: #3f5435;
-    }
+.event-title {
+  color: white;
+  text-shadow: 0 3px 5px #702078, 0 0 16px #ffb6ff;
+  letter-spacing: 2px;
+}
 
-    .event {
-      width: 100%;
-      max-width: 430px;
-      overflow: hidden;
-      background: #fffdf5;
-      border: 3px solid #ffffff;
-      border-radius: 22px;
-      box-shadow: 0 8px 0 #a4c88a, 0 15px 35px #53783b25;
-    }
+.date-pill {
+  background: linear-gradient(90deg, #ff9a42, #ff6728);
+  color: white;
+  box-shadow: 0 0 18px #ffc1ef;
+}
 
-    .header {
-      position: relative;
-      padding: 27px 20px 25px;
-      text-align: center;
-      color: #ffffff;
-      background: linear-gradient(135deg, #80c85b, #438f47);
-      border-bottom: 5px solid #d7edac;
-    }
+.panel {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 5px 0 rgba(65, 9, 79, .22);
+}
 
-    .tag {
-      display: inline-block;
-      padding: 6px 13px;
-      border: 1px solid #ffffff80;
-      border-radius: 20px;
-      background: #ffffff20;
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
+.code-text {
+  color: #a94328;
+  overflow-wrap: anywhere;
+  letter-spacing: 1px;
+}
 
-    .logo {
-      margin: 18px 0 5px;
-      font-size: 48px;
-      line-height: 1.3;
-    }
+.reward-icon {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #fff3ff, #f1d5fa);
+  font-size: 43px;
+}
 
-    h1 {
-      margin: 8px 0;
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 0 #34723c;
-    }
+.claim-btn {
+  background: linear-gradient(90deg, #ff7136, #ed431c);
+  color: white;
+  box-shadow: 0 4px 0 #bb351b;
+  transition: transform .15s;
+}
 
-    .subtitle {
-      margin: 10px 0 0;
-      font-size: 13px;
-      line-height: 1.8;
-      color: #f3ffe9;
-    }
+.claim-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #bb351b;
+}
 
-    .content {
-      padding: 23px 21px 25px;
-    }
+.notice {
+  background: repeating-linear-gradient(
+    90deg,
+    #fff1f0 0px,
+    #fff1f0 18px,
+    #f9e4e7 18px,
+    #f9e4e7 36px
+  );
+}
 
-    .gift-visual {
-      position: relative;
-      margin: 0 auto 20px;
-      padding: 20px 10px;
-      text-align: center;
-      border-radius: 16px;
-      border: 2px dashed #a8ce83;
-      background: linear-gradient(145deg, #f3fbe7, #fff6db);
-    }
-
-    .gift-icon {
-      font-size: 58px;
-      filter: drop-shadow(0 4px 2px #779d4530);
-    }
-
-    .gift-name {
-      margin-top: 8px;
-      font-size: 19px;
-      font-weight: 900;
-      color: #4c8a3e;
-    }
-
-    .gift-desc {
-      margin-top: 7px;
-      color: #78856a;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 22px 0 12px;
-      font-size: 16px;
-      font-weight: 900;
-      color: #4c843e;
-    }
-
-    .section-title::before {
-      content: "";
-      display: inline-block;
-      width: 5px;
-      height: 19px;
-      border-radius: 5px;
-      background: #81bb58;
-    }
-
-    .steps {
-      display: grid;
-      gap: 10px;
-    }
-
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      padding: 12px;
-      border-radius: 11px;
-      background: #f5f8ed;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .number {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: #78b758;
-      color: #fff;
-      font-weight: bold;
-    }
-
-    .step strong {
-      color: #477a39;
-    }
-
-    .notice {
-      margin-top: 17px;
-      padding: 12px;
-      border-radius: 10px;
-      background: #fff4d9;
-      color: #887342;
-      font-size: 12px;
-      line-height: 1.9;
-    }
-
-    .cta {
-      display: block;
-      margin-top: 20px;
-      padding: 15px 12px;
-      border-radius: 13px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: #ffffff;
-      background: linear-gradient(180deg, #82c85b, #57a144);
-      box-shadow: 0 5px 0 #387d36;
-      transition: transform .15s, box-shadow .15s;
-    }
-
-    .cta:hover {
-      transform: translateY(2px);
-      box-shadow: 0 3px 0 #387d36;
-    }
-
-    .cta:active {
-      transform: translateY(5px);
-      box-shadow: none;
-    }
-
-    .footer {
-      padding: 14px 18px;
-      text-align: center;
-      background: #f1f6e7;
-      color: #8b9b7c;
-      font-size: 11px;
-      line-height: 1.8;
-    }
-
-    @media (max-width: 360px) {
-      h1 {
-        font-size: 22px;
-      }
-
-      .content {
-        padding: 18px 15px 23px;
-      }
-    }
-  </style>
+.modal-bg {
+  background: rgba(28, 5, 39, .72);
+  backdrop-filter: blur(4px);
+}
+</style>
 </head>
 
-<body>
-  <main class="event">
+<body class="min-h-screen px-3 py-6 flex justify-center">
 
-    <header class="header">
-      <div class="tag">SPECIAL EVENT · 特別活動</div>
+<main class="w-full max-w-[440px]">
 
-      <div class="logo" aria-hidden="true">🌱🎁🌼</div>
+  <!-- 活動標題 -->
+  <header class="text-center mb-6">
+    <div class="text-4xl mb-2">🦇 🎃 🦇</div>
+    <h1 class="event-title text-[30px] sm:text-[36px] font-black leading-tight">
+      萬聖節活動開跑！
+    </h1>
 
-      <h1>限定小禮物領取活動</h1>
+    <div class="date-pill inline-block rounded-full px-8 py-3 mt-5">
+      <span class="text-xl font-black">10/1 四　›　31 六</span>
+    </div>
 
-      <p class="subtitle">
-        隊長，準備好領取你的驚喜了嗎？<br>
-        立即聯絡客服，了解小禮物代碼領取方式！
+    <p class="text-white text-sm mt-4 font-bold">
+      🎃 萬聖節限定活動・獎勵介紹 🎃
+    </p>
+  </header>
+
+  <!-- 活動代碼 -->
+  <section class="panel p-5 mb-5">
+    <div class="flex items-start gap-3">
+      <div class="text-6xl shrink-0 mt-1">🧛</div>
+      <div class="flex-1 min-w-0">
+        <h2 class="text-[23px] font-black leading-snug">
+          萬聖節慶活動開跑！
+        </h2>
+        <p class="text-[16px] font-bold mt-2 leading-relaxed">
+          特別活動代碼與獎勵資訊
+        </p>
+        <p class="text-[14px] text-gray-600 mt-1">
+          請依實際活動規則確認代碼適用方式。
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-4 rounded-2xl bg-[#fff0eb] border-2 border-dashed border-[#efb09e] p-4 text-center">
+      <p class="text-sm font-bold text-[#9f4934] mb-1">
+        活動促銷代碼
       </p>
-    </header>
+      <p class="code-text text-[27px] sm:text-[30px] font-black">
+        PKMN26SDEG
+      </p>
+      <button id="copyCode"
+        class="mt-3 rounded-lg bg-white border border-[#e8b6a5] text-[#a94328] font-bold px-5 py-2 text-sm">
+        複製活動代碼
+      </button>
+      <p id="copyMessage" class="text-xs text-green-700 mt-2 hidden">
+        已複製代碼
+      </p>
+    </div>
+  </section>
 
-    <section class="content">
+  <!-- 獎勵區 -->
+  <section class="panel p-5 mb-5">
+    <h2 class="text-center text-[25px] font-black mb-6">
+      ✨ 活動獎勵介紹 ✨
+    </h2>
 
-      <div class="gift-visual">
-        <div class="gift-icon" aria-hidden="true">🎁</div>
-        <div class="gift-name">神秘小禮物</div>
-        <div class="gift-desc">
-          活動禮物代碼由客服提供<br>
-          快來看看有什麼驚喜吧！
-        </div>
+    <div class="grid grid-cols-3 gap-2 text-center">
+      <div>
+        <div class="reward-icon">🚁</div>
+        <p class="font-bold text-sm">探險道具</p>
+        <p class="text-xs text-gray-500 mt-1">獎勵一</p>
       </div>
 
-      <div class="section-title">活動參與方式</div>
-
-      <div class="steps">
-        <div class="step">
-          <span class="number">1</span>
-          <div>
-            <strong>加入客服</strong><br>
-            點擊下方按鈕，前往客服聯絡頁面。
-          </div>
-        </div>
-
-        <div class="step">
-          <span class="number">2</span>
-          <div>
-            <strong>詢問活動禮物</strong><br>
-            向客服詢問小禮物代碼及領取條件。
-          </div>
-        </div>
-
-        <div class="step">
-          <span class="number">3</span>
-          <div>
-            <strong>領取禮物代碼</strong><br>
-            確認符合活動條件後，依客服提供的指示領取。
-          </div>
-        </div>
+      <div>
+        <div class="reward-icon">🪙</div>
+        <p class="font-bold text-sm">金幣獎勵</p>
+        <p class="text-xs text-gray-500 mt-1">獎勵二</p>
       </div>
 
-      <div class="notice">
-        📌 <strong>活動提醒</strong><br>
-        禮物內容、代碼及領取資格請以實際活動公告為準。請勿向他人提供密碼或驗證碼。
+      <div>
+        <div class="reward-icon">🎟️</div>
+        <p class="font-bold text-sm">活動票券</p>
+        <p class="text-xs text-gray-500 mt-1">獎勵三</p>
+      </div>
+    </div>
+
+    <div class="notice rounded-2xl p-4 mt-6">
+      <h3 class="font-black text-center text-[18px] mb-3">
+        📢 活動注意事項
+      </h3>
+
+      <div class="bg-white/80 rounded-xl p-3">
+        <p class="font-bold text-sm leading-relaxed">
+          ・每組代碼的使用次數與有效期限，請以活動主辦方公布的規則為準。
+        </p>
+        <p class="font-bold text-sm leading-relaxed mt-2">
+          ・若代碼無法使用，請先確認活動資格及兌換方式。
+        </p>
       </div>
 
-      <!-- 將下方網址替換成你的客服連結 -->
-      <a
-        class="cta"
-        href="https://example.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        🌼 立即加入客服
-      </a>
+      <p class="text-center font-black text-[#a94328] mt-4 text-sm">
+        請透過官方公告確認活動資訊。
+      </p>
+    </div>
+  </section>
 
-    </section>
+  <!-- 領取區 -->
+  <section class="panel p-5 text-center mb-5">
+    <div class="text-4xl mb-2">🎁</div>
+    <h2 class="text-xl font-black">活動獎勵領取</h2>
+    <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+      點擊下方按鈕查看聯絡方式及領取資訊。
+    </p>
 
-    <footer class="footer">
-      祝隊長有個愉快的探險之旅！🌿<br>
-      本頁為自訂活動頁面範本，並非皮克敏官方網站。
-    </footer>
+    <button class="claim-btn openModal w-full mt-5 py-4 rounded-xl font-black text-lg">
+      立即查看領取方式
+    </button>
+  </section>
 
-  </main>
+  <footer class="text-center text-white/80 text-xs leading-relaxed px-3">
+    <p>萬聖節活動主題頁面示範</p>
+    <p class="mt-2">
+      本頁為非官方示範頁面，與 Nintendo、Pikmin Bloom
+      及 Shopee 無官方合作或隸屬關係。
+    </p>
+    <p class="mt-2">活動代碼及獎勵資格請以官方資訊為準。</p>
+  </footer>
+</main>
+
+<!-- 彈出視窗 -->
+<div id="modal"
+  class="hidden fixed inset-0 modal-bg z-50 items-center justify-center p-4">
+
+  <div class="bg-white rounded-3xl w-full max-w-[340px] p-6 text-center shadow-2xl">
+    <div class="text-5xl mb-3">🎃</div>
+
+    <h3 class="text-[#a94328] font-black text-xl">
+      活動獎勵領取
+    </h3>
+
+    <div class="mt-4 bg-[#fff0eb] rounded-xl p-4">
+      <p class="text-sm text-gray-600">活動促銷代碼</p>
+      <p class="text-[#a94328] font-black text-2xl mt-1">
+        PKMN26SDEG
+      </p>
+    </div>
+
+    <p class="text-gray-600 text-sm mt-4 leading-relaxed">
+      請先確認活動資訊及代碼使用規則，再前往相關聯絡頁面。
+    </p>
+
+    <button id="goClaim"
+      class="claim-btn mt-5 w-full py-3.5 rounded-xl font-black">
+      前往聯絡頁面
+    </button>
+
+    <button id="closeModal"
+      class="mt-3 w-full bg-gray-100 text-gray-600 font-bold py-3.5 rounded-xl">
+      返回活動頁面
+    </button>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById('modal');
+
+document.querySelectorAll('.openModal').forEach(button => {
+  button.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  });
+});
+
+function closeModal() {
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+}
+
+document.getElementById('closeModal').addEventListener('click', closeModal);
+
+modal.addEventListener('click', event => {
+  if (event.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeModal();
+});
+
+// 複製代碼
+document.getElementById('copyCode').addEventListener('click', async () => {
+  const code = 'PKMN26SDEG';
+  const message = document.getElementById('copyMessage');
+
+  try {
+    await navigator.clipboard.writeText(code);
+    message.textContent = '已複製代碼！';
+  } catch (error) {
+    message.textContent = '請手動選取並複製：' + code;
+  }
+
+  message.classList.remove('hidden');
+});
+
+// 保留原本的 LINE 連結
+document.getElementById('goClaim').addEventListener('click', () => {
+  window.location.href = 'https://lin.ee/wqxgbQmS';
+});
+</script>
+
 </body>
 </html>
+```
