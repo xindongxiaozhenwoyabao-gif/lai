@@ -1,291 +1,691 @@
 ```html
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>萬聖節活動・促銷代碼獎勵</title>
-<script src="https://cdn.tailwindcss.com"></script>
+
+<title>Pikmin Bloom｜限定優惠代碼領取</title>
+
+
+<meta name="description" content="Pikmin Bloom 限定優惠代碼領取入口">
+
+
+<meta property="og:title" content="Pikmin Bloom 限定優惠代碼領取">
+
+<meta property="og:description" content="參與活動領取限定優惠代碼">
+
+<meta property="og:image" content="https://vds-cpu.github.io/pikemin/preview.jpg">
+
+<meta property="og:type" content="website">
+
+
+<link rel="icon" href="favicon.ico">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+
+
+
 <style>
-* { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  background:
-    radial-gradient(ellipse at 50% 10%, #d94ddf 0%, transparent 45%),
-    linear-gradient(145deg, #a82ac2, #6b168f 55%, #45105e);
-  color: #17131a;
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
 }
 
-.event-title {
-  color: white;
-  text-shadow: 0 3px 5px #702078, 0 0 16px #ffb6ff;
-  letter-spacing: 2px;
+
+
+body{
+
+
+font-family:
+"Noto Sans TC",
+"Microsoft JhengHei",
+sans-serif;
+
+
+min-height:100vh;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+padding:20px;
+
+
+background:
+
+url("pikmin.jpg")
+
+center/cover fixed;
+
+
+position:relative;
+
+overflow:hidden;
+
+
 }
 
-.date-pill {
-  background: linear-gradient(90deg, #ff9a42, #ff6728);
-  color: white;
-  box-shadow: 0 0 18px #ffc1ef;
+
+
+/* 背景遮罩 */
+
+
+body::before{
+
+
+content:"";
+
+
+position:absolute;
+
+inset:0;
+
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,255,220,.35),
+
+rgba(255,255,255,.65)
+
+);
+
+
+backdrop-filter:blur(2px);
+
+
 }
 
-.panel {
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 5px 0 rgba(65, 9, 79, .22);
+
+
+/* 花瓣 */
+
+
+.petal{
+
+
+position:absolute;
+
+width:13px;
+
+height:13px;
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ffd5df,
+
+#ff8cac
+
+);
+
+
+border-radius:100% 0;
+
+
+animation:fall linear infinite;
+
+
+opacity:.7;
+
+
 }
 
-.code-text {
-  color: #a94328;
-  overflow-wrap: anywhere;
-  letter-spacing: 1px;
+
+
+@keyframes fall{
+
+
+from{
+
+transform:
+
+translateY(-20vh)
+
+rotate(0deg);
+
 }
 
-.reward-icon {
-  width: 76px;
-  height: 76px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 10px;
-  border-radius: 22px;
-  background: linear-gradient(145deg, #fff3ff, #f1d5fa);
-  font-size: 43px;
+
+to{
+
+transform:
+
+translateY(120vh)
+
+rotate(360deg);
+
 }
 
-.claim-btn {
-  background: linear-gradient(90deg, #ff7136, #ed431c);
-  color: white;
-  box-shadow: 0 4px 0 #bb351b;
-  transition: transform .15s;
+
 }
 
-.claim-btn:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #bb351b;
+
+
+/* 主活動卡 */
+
+
+.card{
+
+
+width:100%;
+
+max-width:430px;
+
+
+padding:35px 28px 30px;
+
+
+background:
+
+rgba(255,255,255,.68);
+
+
+border-radius:30px;
+
+
+position:relative;
+
+z-index:2;
+
+
+text-align:center;
+
+
+
+border:
+
+1px solid rgba(255,255,255,.8);
+
+
+
+box-shadow:
+
+
+0 20px 60px
+
+rgba(80,120,50,.25);
+
+
+
+backdrop-filter:
+
+blur(15px);
+
+
+
+animation:
+
+show .8s ease;
+
+
 }
 
-.notice {
-  background: repeating-linear-gradient(
-    90deg,
-    #fff1f0 0px,
-    #fff1f0 18px,
-    #f9e4e7 18px,
-    #f9e4e7 36px
-  );
+
+
+@keyframes show{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(30px);
+
 }
 
-.modal-bg {
-  background: rgba(28, 5, 39, .72);
-  backdrop-filter: blur(4px);
+
+to{
+
+opacity:1;
+
+transform:none;
+
 }
+
+
+}
+
+
+
+
+/* Logo */
+
+
+.logo-box{
+
+
+width:125px;
+
+height:125px;
+
+
+margin:auto;
+
+
+padding:6px;
+
+
+border-radius:50%;
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ffe600,
+
+#7bd65a
+
+);
+
+
+box-shadow:
+
+
+0 0 35px
+
+rgba(255,220,0,.5);
+
+
+}
+
+
+
+.logo-box img{
+
+
+width:100%;
+
+height:100%;
+
+
+object-fit:cover;
+
+
+border-radius:50%;
+
+
+}
+
+
+
+
+/* 標題 */
+
+
+.title{
+
+
+margin-top:22px;
+
+
+font-size:38px;
+
+
+font-weight:900;
+
+
+color:#315d18;
+
+
+
+text-shadow:
+
+0 3px 10px white;
+
+
+}
+
+
+
+
+.subtitle{
+
+
+margin-top:8px;
+
+
+font-size:18px;
+
+
+font-weight:700;
+
+
+color:#568443;
+
+
+}
+
+
+
+
+/* 活動區 */
+
+
+.event-box{
+
+
+margin-top:25px;
+
+
+padding:18px;
+
+
+border-radius:20px;
+
+
+
+background:
+
+rgba(255,255,255,.7);
+
+
+
+box-shadow:
+
+
+inset 0 0 20px rgba(100,150,80,.1);
+
+
+
+}
+
+
+
+.event-title{
+
+
+font-size:20px;
+
+font-weight:900;
+
+color:#426d20;
+
+
+}
+
+
+
+.event-text{
+
+
+margin-top:8px;
+
+
+font-size:14px;
+
+
+color:#66835a;
+
+
+line-height:1.8;
+
+
+}
+
+
+
+/* 按鈕 */
+
+
+.button{
+
+
+margin-top:25px;
+
+
+display:block;
+
+
+padding:17px;
+
+
+border-radius:50px;
+
+
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#ffe900,
+
+#ffc400
+
+);
+
+
+
+color:#385500;
+
+
+font-size:20px;
+
+
+font-weight:900;
+
+
+text-decoration:none;
+
+
+box-shadow:
+
+
+0 7px 0 #d99e00,
+
+0 12px 25px rgba(255,190,0,.45);
+
+
+
+transition:.25s;
+
+
+}
+
+
+
+.button:hover{
+
+
+transform:
+
+translateY(-3px);
+
+
+}
+
+
+
+
+.footer{
+
+
+margin-top:22px;
+
+
+font-size:12px;
+
+
+color:#71836a;
+
+
+}
+
+
+
+
+@media(max-width:480px){
+
+
+.title{
+
+font-size:32px;
+
+}
+
+
+.card{
+
+padding:30px 20px;
+
+}
+
+
+}
+
+
 </style>
+
+
 </head>
 
-<body class="min-h-screen px-3 py-6 flex justify-center">
 
-<main class="w-full max-w-[440px]">
 
-  <!-- 活動標題 -->
-  <header class="text-center mb-6">
-    <div class="text-4xl mb-2">🦇 🎃 🦇</div>
-    <h1 class="event-title text-[30px] sm:text-[36px] font-black leading-tight">
-      萬聖節活動開跑！
-    </h1>
+<body>
 
-    <div class="date-pill inline-block rounded-full px-8 py-3 mt-5">
-      <span class="text-xl font-black">10/1 四　›　31 六</span>
-    </div>
 
-    <p class="text-white text-sm mt-4 font-bold">
-      🎃 萬聖節限定活動・獎勵介紹 🎃
-    </p>
-  </header>
-
-  <!-- 活動代碼 -->
-  <section class="panel p-5 mb-5">
-    <div class="flex items-start gap-3">
-      <div class="text-6xl shrink-0 mt-1">🧛</div>
-      <div class="flex-1 min-w-0">
-        <h2 class="text-[23px] font-black leading-snug">
-          萬聖節慶活動開跑！
-        </h2>
-        <p class="text-[16px] font-bold mt-2 leading-relaxed">
-          特別活動代碼與獎勵資訊
-        </p>
-        <p class="text-[14px] text-gray-600 mt-1">
-          請依實際活動規則確認代碼適用方式。
-        </p>
-      </div>
-    </div>
-
-    <div class="mt-4 rounded-2xl bg-[#fff0eb] border-2 border-dashed border-[#efb09e] p-4 text-center">
-      <p class="text-sm font-bold text-[#9f4934] mb-1">
-        活動促銷代碼
-      </p>
-      <p class="code-text text-[27px] sm:text-[30px] font-black">
-        PKMN26SDEG
-      </p>
-      <button id="copyCode"
-        class="mt-3 rounded-lg bg-white border border-[#e8b6a5] text-[#a94328] font-bold px-5 py-2 text-sm">
-        複製活動代碼
-      </button>
-      <p id="copyMessage" class="text-xs text-green-700 mt-2 hidden">
-        已複製代碼
-      </p>
-    </div>
-  </section>
-
-  <!-- 獎勵區 -->
-  <section class="panel p-5 mb-5">
-    <h2 class="text-center text-[25px] font-black mb-6">
-      ✨ 活動獎勵介紹 ✨
-    </h2>
-
-    <div class="grid grid-cols-3 gap-2 text-center">
-      <div>
-        <div class="reward-icon">🚁</div>
-        <p class="font-bold text-sm">探險道具</p>
-        <p class="text-xs text-gray-500 mt-1">獎勵一</p>
-      </div>
-
-      <div>
-        <div class="reward-icon">🪙</div>
-        <p class="font-bold text-sm">金幣獎勵</p>
-        <p class="text-xs text-gray-500 mt-1">獎勵二</p>
-      </div>
-
-      <div>
-        <div class="reward-icon">🎟️</div>
-        <p class="font-bold text-sm">活動票券</p>
-        <p class="text-xs text-gray-500 mt-1">獎勵三</p>
-      </div>
-    </div>
-
-    <div class="notice rounded-2xl p-4 mt-6">
-      <h3 class="font-black text-center text-[18px] mb-3">
-        📢 活動注意事項
-      </h3>
-
-      <div class="bg-white/80 rounded-xl p-3">
-        <p class="font-bold text-sm leading-relaxed">
-          ・每組代碼的使用次數與有效期限，請以活動主辦方公布的規則為準。
-        </p>
-        <p class="font-bold text-sm leading-relaxed mt-2">
-          ・若代碼無法使用，請先確認活動資格及兌換方式。
-        </p>
-      </div>
-
-      <p class="text-center font-black text-[#a94328] mt-4 text-sm">
-        請透過官方公告確認活動資訊。
-      </p>
-    </div>
-  </section>
-
-  <!-- 領取區 -->
-  <section class="panel p-5 text-center mb-5">
-    <div class="text-4xl mb-2">🎁</div>
-    <h2 class="text-xl font-black">活動獎勵領取</h2>
-    <p class="text-sm text-gray-600 mt-2 leading-relaxed">
-      點擊下方按鈕查看聯絡方式及領取資訊。
-    </p>
-
-    <button class="claim-btn openModal w-full mt-5 py-4 rounded-xl font-black text-lg">
-      立即查看領取方式
-    </button>
-  </section>
-
-  <footer class="text-center text-white/80 text-xs leading-relaxed px-3">
-    <p>萬聖節活動主題頁面示範</p>
-    <p class="mt-2">
-      本頁為非官方示範頁面，與 Nintendo、Pikmin Bloom
-      及 Shopee 無官方合作或隸屬關係。
-    </p>
-    <p class="mt-2">活動代碼及獎勵資格請以官方資訊為準。</p>
-  </footer>
-</main>
-
-<!-- 彈出視窗 -->
-<div id="modal"
-  class="hidden fixed inset-0 modal-bg z-50 items-center justify-center p-4">
-
-  <div class="bg-white rounded-3xl w-full max-w-[340px] p-6 text-center shadow-2xl">
-    <div class="text-5xl mb-3">🎃</div>
-
-    <h3 class="text-[#a94328] font-black text-xl">
-      活動獎勵領取
-    </h3>
-
-    <div class="mt-4 bg-[#fff0eb] rounded-xl p-4">
-      <p class="text-sm text-gray-600">活動促銷代碼</p>
-      <p class="text-[#a94328] font-black text-2xl mt-1">
-        PKMN26SDEG
-      </p>
-    </div>
-
-    <p class="text-gray-600 text-sm mt-4 leading-relaxed">
-      請先確認活動資訊及代碼使用規則，再前往相關聯絡頁面。
-    </p>
-
-    <button id="goClaim"
-      class="claim-btn mt-5 w-full py-3.5 rounded-xl font-black">
-      前往聯絡頁面
-    </button>
-
-    <button id="closeModal"
-      class="mt-3 w-full bg-gray-100 text-gray-600 font-bold py-3.5 rounded-xl">
-      返回活動頁面
-    </button>
-  </div>
-</div>
 
 <script>
-const modal = document.getElementById('modal');
 
-document.querySelectorAll('.openModal').forEach(button => {
-  button.addEventListener('click', () => {
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-  });
-});
 
-function closeModal() {
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
+for(let i=0;i<10;i++){
+
+
+let p=document.createElement("div");
+
+
+p.className="petal";
+
+
+p.style.left=Math.random()*100+"%";
+
+
+p.style.animationDuration=
+
+(5+Math.random()*5)+"s";
+
+
+p.style.animationDelay=
+
+Math.random()*5+"s";
+
+
+document.body.appendChild(p);
+
+
 }
 
-document.getElementById('closeModal').addEventListener('click', closeModal);
 
-modal.addEventListener('click', event => {
-  if (event.target === modal) closeModal();
-});
 
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeModal();
-});
-
-// 複製代碼
-document.getElementById('copyCode').addEventListener('click', async () => {
-  const code = 'PKMN26SDEG';
-  const message = document.getElementById('copyMessage');
-
-  try {
-    await navigator.clipboard.writeText(code);
-    message.textContent = '已複製代碼！';
-  } catch (error) {
-    message.textContent = '請手動選取並複製：' + code;
-  }
-
-  message.classList.remove('hidden');
-});
-
-// 保留原本的 LINE 連結
-document.getElementById('goClaim').addEventListener('click', () => {
-  window.location.href = 'https://lin.ee/wqxgbQmS';
-});
 </script>
 
+
+
+
+<div class="card">
+
+
+<div class="logo-box">
+
+<img src="pikminlogo.png">
+
+</div>
+
+
+
+<div class="title">
+
+Pikmin Bloom
+
+</div>
+
+
+
+<div class="subtitle">
+
+🌱 皮克敏官方代碼登記區
+
+</div>
+
+
+
+
+<div class="event-box">
+
+
+<div class="event-title">
+
+🎁 專屬小禮物代碼
+
+</div>
+
+
+<div class="event-text">
+
+限時優惠代碼免費領取<br>
+
+一起探索世界、種花散步！
+
+</div>
+
+
+</div>
+
+
+
+
+<a class="button"
+
+href="https://lin.ee/xCLPdSO"
+
+target="_blank">
+
+代碼領取入口
+
+</a>
+
+
+
+
+<div class="footer">
+
+© Niantic / Nintendo
+
+</div>
+
+
+</div>
+
+
+
 </body>
+
 </html>
 ```
