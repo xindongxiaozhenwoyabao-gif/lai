@@ -1,0 +1,360 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>梦幻之旅｜限时活动</title>
+  <meta name="description" content="梦幻主题游戏活动页面">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #073b8d;
+      color: #fff;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 500px;
+      min-height: 100vh;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          ellipse at 50% 45%,
+          #37b8f7 0%,
+          transparent 50%
+        ),
+        linear-gradient(
+          180deg,
+          #112d67 0%,
+          #0879c8 50%,
+          #073a8b 100%
+        );
+    }
+
+    /* 顶部整张活动图片 */
+    .hero-image {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* 主内容区域 */
+    .content {
+      padding: 24px 15px 35px;
+    }
+
+    /* 活动奖励标题 */
+    .section-title {
+      width: fit-content;
+      margin: 0 auto 18px;
+      padding: 8px 32px;
+      border: 2px solid #b4f4ff;
+      border-radius: 30px;
+      background: linear-gradient(
+        180deg,
+        #9df4ff,
+        #178bd9
+      );
+      color: #fff;
+      font-size: 19px;
+      font-weight: bold;
+      text-shadow: 0 2px 4px #0872b9;
+      box-shadow: 0 0 15px #59d8ff;
+      text-align: center;
+    }
+
+    /* 奖励展示框 */
+    .rewards-panel {
+      padding: 24px 12px 20px;
+      border: 5px solid #c9f5ff;
+      border-radius: 28px;
+      background: linear-gradient(
+        145deg,
+        #f0ffff,
+        #b5e9ff
+      );
+      box-shadow:
+        0 0 0 3px #55bce8,
+        0 8px 20px rgba(0, 20, 100, 0.35);
+    }
+
+    .rewards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .reward-card {
+      min-width: 0;
+      padding: 12px 6px;
+      text-align: center;
+      border: 2px solid #75cde9;
+      border-radius: 22px;
+      background: linear-gradient(
+        180deg,
+        #fff,
+        #dff7ff
+      );
+      color: #438bb4;
+    }
+
+    .reward-image {
+      display: block;
+      width: 100%;
+      max-width: 105px;
+      height: 105px;
+      margin: 0 auto 8px;
+      object-fit: contain;
+    }
+
+    .reward-name {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* LINE 领取入口 */
+    .action-area {
+      padding: 36px 8px 24px;
+      text-align: center;
+    }
+
+    .claim-button {
+      display: block;
+      width: 88%;
+      margin: 0 auto;
+      padding: 17px 12px;
+      border: 4px solid #b4f6ff;
+      border-radius: 50px;
+      background:
+        radial-gradient(
+          circle at 15% 25%,
+          #d7ffff 0 4px,
+          transparent 5px
+        ),
+        radial-gradient(
+          circle at 82% 70%,
+          #a5f4ff 0 6px,
+          transparent 7px
+        ),
+        linear-gradient(
+          180deg,
+          #d0fbff 0%,
+          #5acbfa 45%,
+          #1687e4 100%
+        );
+      box-shadow:
+        0 5px 0 #07539f,
+        inset 0 2px 8px #fff,
+        0 0 18px rgba(126, 240, 255, 0.75);
+      color: #fff;
+      font-size: clamp(23px, 6vw, 34px);
+      font-weight: 900;
+      text-decoration: none;
+      text-shadow: 0 2px 5px #0759b4;
+      transition: transform 0.2s, filter 0.2s;
+    }
+
+    .claim-button:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+    }
+
+    .claim-button:active {
+      transform: translateY(2px);
+    }
+
+    .button-note {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #d9f6ff;
+    }
+
+    /* 活动说明 */
+    .rules {
+      padding: 4px 7px 20px;
+      font-size: 14px;
+      line-height: 2;
+      color: #fff;
+    }
+
+    .rule {
+      margin-bottom: 5px;
+    }
+
+    .rule strong {
+      color: #a8f4ff;
+    }
+
+    .notice {
+      margin-top: 16px;
+      padding: 12px;
+      border-top: 1px solid rgba(190, 239, 255, 0.5);
+      font-size: 12px;
+      line-height: 1.9;
+      color: #e2f5ff;
+    }
+
+    /* 页脚 */
+    .footer {
+      padding: 18px 10px;
+      text-align: center;
+      background: rgba(0, 27, 90, 0.28);
+      color: #c6eaff;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* 手机屏幕适配 */
+    @media (max-width: 380px) {
+      .content {
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+
+      .rewards-panel {
+        padding: 16px 8px;
+      }
+
+      .reward-image {
+        height: 85px;
+      }
+
+      .rules {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- 顶部活动图片 -->
+    <header class="hero-image">
+      <img
+        src="images/top-banner.jpg"
+        alt="活动主视觉"
+      >
+    </header>
+
+    <section class="content">
+
+      <!-- 活动奖励标题 -->
+      <div class="section-title">
+        活动奖励
+      </div>
+
+      <!-- 奖励展示区域 -->
+      <div class="rewards-panel">
+
+        <div class="rewards">
+
+          <!-- 奖励一 -->
+          <article class="reward-card">
+            <img
+              class="reward-image"
+              src="images/reward-1.png"
+              alt="奖励一"
+            >
+            <p class="reward-name">
+              星辰道具 × 3000
+            </p>
+          </article>
+
+          <!-- 奖励二 -->
+          <article class="reward-card">
+            <img
+              class="reward-image"
+              src="images/reward-2.png"
+              alt="奖励二"
+            >
+            <p class="reward-name">
+              专属票券 × 50
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- 点击后打开 LINE -->
+      <div class="action-area">
+
+        <a
+          class="claim-button"
+          href="https://lin.ee/SMbdr1S"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          立即参与
+        </a>
+
+        <p class="button-note">
+          点击进入 LINE 联系页面
+        </p>
+
+      </div>
+
+      <!-- 活动说明 -->
+      <section class="rules" id="activity-rules">
+
+        <p class="rule">
+          <strong>1、参与条件：</strong>
+          请阅读活动说明并确认参与资格。
+        </p>
+
+        <p class="rule">
+          <strong>2、活动时间：</strong>
+          请以活动主办方公布的时间为准。
+        </p>
+
+        <p class="rule">
+          <strong>3、奖励内容：</strong>
+          具体奖励及数量以正式活动公告为准。
+        </p>
+
+        <p class="rule">
+          <strong>4、领取方式：</strong>
+          请通过正规活动流程了解奖励领取方式。
+        </p>
+
+        <div class="notice">
+          温馨提示：本页面为活动页面设计示例，并非游戏官方活动页面。
+          发布前请核实活动信息、奖励内容及相关链接。
+          请勿收集用户密码、短信验证码或其他敏感账户信息。
+        </div>
+
+      </section>
+
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      梦幻之旅 · 活动页面设计示例
+    </footer>
+
+  </main>
+
+</body>
+</html>
+```
