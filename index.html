@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,
+                 initial-scale=1.0,
+                 maximum-scale=1.0,
+                 user-scalable=no"
+    >
+
+    <title>活动页面</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            background: #0b4f9d;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /*
+         * 页面比例：
+         * 原图片尺寸为 484 × 1280
+         */
+        .page {
+            position: relative;
+
+            width: min(100vw, 484px);
+
+            aspect-ratio: 484 / 1280;
+
+            background-image: url("这里放你的图片");
+
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+
+            overflow: hidden;
+        }
+
+        /*
+         * 「立即领取」点击区域
+         *
+         * 这里是透明的，不会改变原来的图片。
+         */
+        .claim-link {
+            position: absolute;
+
+            left: 17.6%;
+            top: 73.05%;
+
+            width: 64.9%;
+            height: 7%;
+
+            display: block;
+
+            cursor: pointer;
+
+            background: transparent;
+
+            border: none;
+
+            text-decoration: none;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .claim-link:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!--
+            「立即领取」按钮点击区域
+
+            点击后跳转到你的 LINE：
+            https://lin.ee/SMbdr1S
+        -->
+        <a
+            class="claim-link"
+            href="https://lin.ee/SMbdr1S"
+            aria-label="立即领取"
+        ></a>
+
+    </div>
+
+</body>
+</html>
